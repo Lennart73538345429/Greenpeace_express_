@@ -11,51 +11,123 @@ server.headersTimeout = 120 * 1000;
 
 const html = `
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Hello from Render!</title>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-    <script>
-      setTimeout(() => {
-        confetti({
-          particleCount: 100,
-          spread: 70,
-          origin: { y: 0.6 },
-          disableForReducedMotion: true
-        });
-      }, 500);
-    </script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-      @import url("https://p.typekit.net/p.css?s=1&k=vnd5zic&ht=tk&f=39475.39476.39477.39478.39479.39480.39481.39482&a=18673890&app=typekit&e=css");
-      @font-face {
-        font-family: "neo-sans";
-        src: url("https://use.typekit.net/af/00ac0a/00000000000000003b9b2033/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"), url("https://use.typekit.net/af/00ac0a/00000000000000003b9b2033/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"), url("https://use.typekit.net/af/00ac0a/00000000000000003b9b2033/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
-        font-style: normal;
-        font-weight: 700;
-      }
-      html {
-        font-family: neo-sans;
-        font-weight: 700;
-        font-size: calc(62rem / 16);
-      }
-      body {
-        background: white;
-      }
-      section {
-        border-radius: 1em;
-        padding: 1em;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
-      }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+        }
+
+        input, button {
+            margin-bottom: 16px;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+        }
     </style>
-  </head>
-  <body>
-    <section>
-      Hello from Render!
-    </section>
-  </body>
+    <title>Personeninformationen</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Ticket Markus Maute</h1>
+        <form id="personForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">E-Mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="age">Personen:</label>
+            <input type="number" id="age" name="age" required>
+
+            <button type="button" onclick="saveData()">Speichern</button>
+        </form>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function saveData() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var personen = document.getElementById('age').value;
+
+            // Überprüfen, ob alle Felder ausgefüllt sind
+            if (name && email && age) {
+                // CSV-Daten erstellen
+                var csvData = 'Name,Email,Age\n' + name + ',' + email + ',' + age + '\n';
+
+                // Blob erstellen
+                var blob = new Blob([csvData], { type: 'text/csv' });
+
+                // Anchor-Element erstellen und herunterladen auslösen
+                var a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = 'personeninformationen.csv';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+
+                // Erfolgsmeldung anzeigen
+                var outputDiv = document.getElementById('output');
+                outputDiv.innerHTML = 'Email wird an Sie in kürze versand Wenn nicht ist dies kein Problem die Veranstaltung ist kostenfrei';
+            } else {
+                // Fehlermeldung anzeigen
+                var outputDiv = document.getElementById('output');
+                outputDiv.innerHTML = 'Bitte füllen Sie alle Felder aus.';
+            }
+        }
+	const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+const port = 3000;
+
+app.use(bodyParser.json());
+
+app.post('/save', (req, res) => {
+    const { name, email, personen } = req.body;
+    // Server
+    console.log('Empfangene Daten:', name, email, anzahl);
+    res.json({ success: true });
+});
+
+app.listen(port, () => {
+    console.log(`Server läuft auf http://localhost:${port}`);
+});
+
+    </script>
+</body>
 </html>
 `
