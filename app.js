@@ -124,9 +124,6 @@ app.post('/save', (req, res) => {
     res.json({ success: true });
 });
 
-app.listen(port, () => {
-    console.log(`Server läuft auf http://localhost:${port}`);
-});
 
     </script>
 </body>
