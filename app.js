@@ -74,7 +74,7 @@ const html = `
             <input type="email" id="email" name="email" required>
 
             <label for="age">Personen:</label>
-            <input type="number" id="age" name="age" required>
+            <input type="number" id="anzahl" name="anzahl" required>
 
             <button type="button" onclick="saveData()">Speichern</button>
         </form>
@@ -86,12 +86,12 @@ const html = `
         function saveData() {
             var name = document.getElementById('name').value;
             var email = document.getElementById('email').value;
-            var personen = document.getElementById('age').value;
+            var personen = document.getElementById('anzahl').value;
 
             // Überprüfen, ob alle Felder ausgefüllt sind
             if (name && email && age) {
                 // CSV-Daten erstellen
-                var csvData = 'Name,Email,Age\n' + name + ',' + email + ',' + age + '\n';
+                var csvData = 'Name,Email,Age\n' + name + ',' + email + ',' + anzahl + '\n';
 
                 // Blob erstellen
                 var blob = new Blob([csvData], { type: 'text/csv' });
@@ -121,7 +121,7 @@ const port = 3000;
 app.use(bodyParser.json());
 
 app.post('/save', (req, res) => {
-    const { name, email, personen } = req.body;
+    const { name, email, anzahl } = req.body;
     // Server
     console.log('Empfangene Daten:', name, email, anzahl);
     res.json({ success: true });
