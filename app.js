@@ -121,9 +121,9 @@ const port = 3000;
 app.use(bodyParser.json());
 
 app.post('/save', (req, res) => {
-    const { name, email, anzahl } = req.body;
+    const { name, email, age } = req.body;
     // Server
-    console.log('Empfangene Daten:', name, email, anzahl);
+    console.log('Empfangene Daten:', name, email, age);
     res.json({ success: true });
 });
 
