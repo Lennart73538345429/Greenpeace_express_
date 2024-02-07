@@ -55,7 +55,7 @@ app.post('/submit', (req, res) => {
   pool.query(query, values, (err, result) => {
     if (err) {
       console.error('Fehler beim Einfügen der Daten:', err);
-      res.status(500).send('Interner Serverfehler');
+      res.status(500).send('Serverfehler: Wenn sie sich nicht erfolgreich Anmelden könen, senden Sie bitte eine Email an messner@reisefibel.de');
     } else {
       console.log('Daten erfolgreich eingefügt:', result.rows);
       res.send('Daten erfolgreich eingereicht');
