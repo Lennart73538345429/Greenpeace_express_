@@ -28,7 +28,8 @@ server.headersTimeout = 120 * 1000;
 
 const pool = new Pool({
   user: 'dbname_d0um_user',
-  host: 'dpg-cn0hh20cmk4c73anb0gg-a.frankfurt-postgres.render.com',
+  //host: 'dpg-cn0hh20cmk4c73anb0gg-a.frankfurt-postgres.render.com',
+  host: 'postgres://dbname_d0um_user:ZCRheURsQQdzre3qv6Xuo26ParCncgNV@dpg-cn0hh20cmk4c73anb0gg-a/dbname_d0um',
   database: 'dbname_d0um',
   password: 'ZCRheURsQQdzre3qv6Xuo26ParCncgNV',
   port: 5432,
