@@ -41,7 +41,7 @@ app.post('/submit', (req, res) => {
   const { name, email, anzahl } = req.body;
 
   // SQL Query für das Einfügen der Daten
-  const query = 'INSERT INTO personen (name, email, anzahl) VALUES ($1, $2, $3)';
+  const query = 'INSERT INTO Personen (name, email, anzahl) VALUES ($1, $2, $3)';
   const values = [name, email, anzahl];
 
   // Daten in die Datenbank einfügen
