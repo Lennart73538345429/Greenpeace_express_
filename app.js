@@ -46,8 +46,12 @@ app.post('/submit', (req, res) => {
   const { name, email, anzahl } = req.body;
 
 
-  const query = 'INSERT INTO Personen (name, email, anzahl) VALUES ($1, $2, $3)';
-  const values = [name, email, anzahl];
+ // const query = 'INSERT INTO Personen (name, email, anzahl) VALUES ($1, $2, $3)';
+  const query = 'INSERT INTO Benutzer (name, email, anzahl)
+VALUES ('Max Mustermann1', 'maxe.mustermann@example.com', 52);
+
+';
+ // const values = [name, email, anzahl];
 
  
   pool.query(query, values, (err, result) => {
