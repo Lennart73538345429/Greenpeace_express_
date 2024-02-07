@@ -28,10 +28,10 @@ server.headersTimeout = 120 * 1000;
 
 // PostgreSQL Datenbank Konfiguration
 const pool = new Pool({
-  user: 'dein_pg_benutzer',
-  host: 'localhost',
-  database: 'deine_datenbank',
-  password: 'dein_pg_passwort',
+  user: 'dbname_d0um_user',
+  host: 'dpg-cn0hh20cmk4c73anb0gg-a.frankfurt-postgres.render.com',
+  database: 'dbname_d0um',
+  password: 'ZCRheURsQQdzre3qv6Xuo26ParCncgNV',
   port: 5432,
 });
 
