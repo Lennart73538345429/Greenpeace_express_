@@ -12,7 +12,7 @@ app.use(express.static('public'));
 
 // Routen für die Homepage
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index1.html');
+  res.sendFile(__dirname + '/hallo.html');
 });
 const port = process.env.PORT || 3001;
 
