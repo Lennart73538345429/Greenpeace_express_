@@ -33,6 +33,13 @@ const pool = new Pool({
   database: 'dbname_d0um',
   password: 'ZCRheURsQQdzre3qv6Xuo26ParCncgNV',
   port: 5432,
+  ssl: {
+    rejectUnauthorized: false, // Setze auf true, wenn dein SSL-Zertifikat verifiziert werden soll
+    // Du kannst auch SSL-Zertifikate angeben, um die Verbindung zu verifizieren:
+    // ca: fs.readFileSync('/pfad/zum/ca-cert.pem'), // Pfad zur CA-Zertifikat-Datei
+    // cert: fs.readFileSync('/pfad/zum/client-cert.pem'), // Pfad zum Client-Zertifikat
+    // key: fs.readFileSync('/pfad/zum/client-key.pem') // Pfad zum Client-Schlüssel
+  }
 });
 
 
