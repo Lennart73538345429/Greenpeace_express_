@@ -55,7 +55,7 @@ app.post('/submit', (req, res) => {
  pool.query("INSERT INTO Personen (name, email, anzahl) VALUES ('Max Mustermann1', 'maxe.mustermann@example.com', 52)", (err, result) => {
     if (err) {
       console.error('Fehler beim Einfügen der Daten:', err);
-      res.status(500).send('Serverfehler: Wenn sie sich nicht erfolgreich Anmelden können, senden Sie bitte eine Email an messner@reisefibel.de');
+      res.status(500).send('Serverfehler: Wenn Sie sich nicht erfolgreich anmelden können, senden Sie bitte eine Email an messner@reisefibel.de');
     } else {
       console.log('Daten erfolgreich eingefügt:', result.rows);
       res.send('Daten erfolgreich eingereicht');
