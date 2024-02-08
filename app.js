@@ -48,7 +48,7 @@ app.post('/submit', (req, res) => {
  const values = [name, email, anzahl];
 
  // const query = 'INSERT INTO Personen (name, email, anzahl) VALUES ($1, $2, $3)';
- const query = 'INSERT INTO Personen (name, email, anzahl) VALUES ('Max Mustermann1', 'maxe.mustermann@example.com', 52)';
+ const query = 'INSERT INTO Personen (name, email, anzahl) VALUES ("Max Mustermann12", "maxe.mustermann@example.com", 52)';
  
 
  
