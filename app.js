@@ -46,9 +46,6 @@ const pool = new Pool({
 app.post('/submit', (req, res) => {
   const { name, email, anzahl } = req.body;
  const values = [name, email, anzahl];
-name =values[0]
-email = values[1]
-anzahl = values[2]
   const query = 'INSERT INTO Personen (name, email, anzahl) VALUES ($1, $2, $3)';
 //const query = 'INSERT INTO Personen (name, email, anzahl) VALUES ("Max Mustermann12", "maxe.mustermann@example.com", 52)';
  
